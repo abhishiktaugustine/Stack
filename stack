@@ -1,0 +1,113 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include<conio.h>
+
+int s[10],TOP=-1,MAX,choice,i,x;
+
+void push()
+{
+	if(TOP>=MAX)
+	{
+		printf("\nStack is full/Overflow\n");
+		return ;
+	}
+	else{
+		printf("\nEnter a value to be pushed : ");
+		scanf("%d",&x);
+		TOP++;
+		s[TOP]=x;
+	}
+}
+
+void pop()
+{
+	if(TOP<=-1)
+	{
+		printf("\nStack is empty/Underflow\n");
+		scanf("%d",&x);
+		return ;
+	}
+	else{
+		printf("\nThe Following Element has been Popped  : %d",s[TOP]);
+		TOP--;
+		
+	}
+}
+void display()
+{
+	if(TOP>=0)
+	{
+		printf("\nThe Elements are : " );
+		for(i=TOP;i>=0;i--)
+		printf("\n %d",s[i]);
+		printf("\n press the next choice");
+	}
+	else
+	{
+		printf("\n The stack is empty\n");
+	}
+}
+void peek(){
+	if(TOP==-1)
+	{
+		printf("\nstack is empty");
+	}
+	else
+	{
+		printf(" \nThe Topmost element is : %d",s[TOP]);
+	}
+	
+
+	
+}
+int main() {
+	printf("\n<-----Enter the value of stack--MAX=10  :  ");
+	scanf("%d",&MAX);
+	printf("\n Following are the stac operations :");
+	printf("\n Press 1 for PUSH Operation ");
+	printf("\n Press 2 for POP Operation ");
+	printf("\n Press 3 for DISPLAY Operation ");
+	printf("\n Press 4 for PEEP Operation \n ");
+	
+	do{
+		printf("\nEnter the choice: ");
+		scanf("%d",&choice);
+		switch(choice)
+		{
+			case 1:
+			 {
+			 	push();
+				break;
+			 }
+				
+			case 2:
+			{
+				pop();
+				break;
+			}
+			case 3:
+			{
+			  	display();
+			  	break;
+   			}		
+   			case 4:
+   			{
+   				peek();
+   				break;
+			}
+   			case 5:
+			{
+			   	printf("\n Exit point");
+			   	break;
+			}  
+			default:
+			{
+					printf("\n Please Enter a valid choice among 1,2,3,4,5 ");
+			}
+			    			
+		}
+	}
+	while(choice!=5);
+	return 0;
+	
+}
